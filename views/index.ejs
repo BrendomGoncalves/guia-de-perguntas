@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+<body class="flex flex-col items-center">
+<%- include('partials/navbar') %>
+<p class="flex justify-center font-bold my-2 text-white">PERGUNTAS RECENTES [<%= numeroDePerguntas %>]</p>
+<div class="w-full p-2 flex flex-row flex-wrap gap-4 justify-center">
+    <% perguntas.forEach(pergunta => { %>
+        <div class="w-64 h-full min-h-40 border-2 border-gray-400 rounded-md p-1 bg-gray-800">
+            <div class="text-center border-b-2 border-gray-300 py-1 px-2 min-h-10">
+                <p class="text-yellow-400 text-center leading-none text-base"><%= pergunta.titulo %></p>
+            </div>
+            <div class="px-1 mt-1 h-32">
+                <p class="text-gray-300 text-justify text-sm"><%= pergunta.descricao %></p>
+            </div>
+            <div class="flex justify-end p-2">
+                <a href="/perguntas/<%= pergunta.id %>" class="w-full rounded-sm bg-yellow-500 px-2 py-1 text-center font-semibold text-sm">VER RESPOSTAS</a>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+</body>
+<%- include('partials/footer') %>
