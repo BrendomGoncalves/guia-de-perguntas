@@ -11,4 +11,9 @@ const connection = new Sequelize(
     }
 );
 
+connection
+    .authenticate()
+    .then(() => console.log('Banco de Dados [OK]'))
+    .catch((error) => console.log(error))
+
 module.exports = connection;
